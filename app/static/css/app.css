@@ -1,3 +1,20 @@
 body {
     padding-top: 5rem;
 }
+
+.imageView
+{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-auto-rows: 200px;
+    grid-row-gap:  1px;
+
+}
+
+img
+{
+    width: 50%;
+    height: 70%;
+}
+
+

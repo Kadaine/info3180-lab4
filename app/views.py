@@ -49,12 +49,20 @@ def upload():
 
 def get_uploaded_images():
     Images = []
-    L_files = os.listdir('./app/static/uploads/')
-    for file in L_files:
+    Load_files = os.listdir('./app/static/uploads/')
+    for file in Load_files:
         if file.split('.')[-1] in Allowed_Uploads:
             Images.append(file)
     return Images
 
+@app.route('/files')
+def files():
+    if not session.get('logged_in'):
+        abort(401)
+
+    Load_files_list = get_uploaded_images()
+    return render_template('files.html', uploaded_images = Load_files_list)
+    
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
